@@ -1,16 +1,18 @@
 FROM java:jre-alpine
 
-MAINTAINER Moti Zilberman <motiz88@gmail.com>
+MAINTAINER Shayne Miel <miel.shayne@gmail.com>
 
 RUN apk add --update --no-cache \
 	 unzip \
 	 wget
 
-RUN wget http://nlp.stanford.edu/software/stanford-corenlp-full-2015-12-09.zip
-RUN unzip stanford-corenlp-full-2015-12-09.zip && \
-	rm stanford-corenlp-full-2015-12-09.zip
+ARG CORENLP_RELEASE=stanford-corenlp-full-2016-10-31
 
-WORKDIR stanford-corenlp-full-2015-12-09
+RUN wget http://nlp.stanford.edu/software/$CORENLP_RELEASE.zip
+RUN unzip $CORENLP_RELEASE.zip && \
+	rm $CORENLP_RELEASE.zip
+
+WORKDIR $CORENLP_RELEASE
 
 RUN export CLASSPATH="`find . -name '*.jar'`"
 

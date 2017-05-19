@@ -14,10 +14,12 @@ RUN unzip $CORENLP_RELEASE.zip && \
 
 WORKDIR $CORENLP_RELEASE
 
+RUN wget https://nlp.stanford.edu/software/stanford-srparser-2014-10-23-models.jar
+
 RUN export CLASSPATH="`find . -name '*.jar'`"
 
 ENV PORT 9000
 
 EXPOSE $PORT
 
-CMD java -cp "*" -mx4g edu.stanford.nlp.pipeline.StanfordCoreNLPServer
+CMD java -cp "*" -mx8g edu.stanford.nlp.pipeline.StanfordCoreNLPServer

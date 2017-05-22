@@ -9,3 +9,6 @@ Latest version is [CoreNLP 3.7.0](http://nlp.stanford.edu/software/stanford-core
 
 Docker images whose tags end with "-sr" also include the [shift reduce constituency parser](https://nlp.stanford.edu/software/srparser.shtml)
 which is used as the default parser.
+
+This version of the image includes a server properties file that uses the beam
+search version of the shift reduce parser by default.

@@ -22,4 +22,6 @@ ENV PORT 9000
 
 EXPOSE $PORT
 
-CMD java -cp "*" -mx8g edu.stanford.nlp.pipeline.StanfordCoreNLPServer
+COPY sr_beam.props sr_beam.props
+
+CMD java -cp "*" -mx8g edu.stanford.nlp.pipeline.StanfordCoreNLPServer -serverProperties sr_beam.props

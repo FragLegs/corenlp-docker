@@ -1,4 +1,4 @@
-FROM java:jre-alpine
+FROM openjdk:8-jre-alpine
 
 MAINTAINER Shayne Miel <miel.shayne@gmail.com>
 
@@ -6,7 +6,7 @@ RUN apk add --update --no-cache \
 	 unzip \
 	 wget
 
-ARG CORENLP_RELEASE=stanford-corenlp-full-2016-10-31
+ARG CORENLP_RELEASE=stanford-corenlp-full-2018-02-27
 
 RUN wget http://nlp.stanford.edu/software/$CORENLP_RELEASE.zip
 RUN unzip $CORENLP_RELEASE.zip && \
